@@ -32,16 +32,16 @@ const ProductDetail: React.FC = () => {
   }
 
   return (
-    <main className="pt-32 pb-24 px-4 max-w-7xl mx-auto min-h-screen">
+    // Note: Added pb-32 for mobile so content doesn't get hidden behind the new sticky bottom bar
+    <main className="pt-32 pb-32 md:pb-24 px-4 max-w-7xl mx-auto min-h-screen">
       <Link to="/shop" className="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-red-600 mb-8 transition-colors">
         <ArrowLeft size={16} /> Back to Shop
       </Link>
 
-      {/* --- HERO SECTION --- */}
       <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
         
-        {/* Left Column: Image Gallery (Made sticky so it stays visible as you scroll specs) */}
-        <div className="bg-white rounded-[3rem] p-8 border border-slate-100 shadow-xl relative h-fit sticky top-32">
+        {/* Left Column: Image Gallery (Mobile First Fix: md:sticky) */}
+        <div className="bg-white rounded-[3rem] p-8 border border-slate-100 shadow-xl relative h-fit md:sticky md:top-32">
           {product.tag && (
             <span className="absolute top-8 left-8 bg-red-600 text-white text-[10px] font-black px-4 py-1.5 rounded-full shadow-lg italic z-10">
               {product.tag}
@@ -50,11 +50,11 @@ const ProductDetail: React.FC = () => {
           <img 
             src={product.image} 
             alt={product.name} 
-            className="w-full h-auto object-cover rounded-2xl hover:scale-105 transition-transform duration-500" 
+            className="w-full h-auto object-cover rounded-2xl" 
           />
         </div>
 
-        {/* Right Column: Buying Logic */}
+        {/* Right Column: Product Info */}
         <div className="space-y-8 py-4">
           
           <div>
@@ -83,7 +83,8 @@ const ProductDetail: React.FC = () => {
             {product.description}
           </p>
 
-          <div className="pt-6">
+          {/* Desktop Add to Cart (Hidden on very small mobile screens if we want, but good to keep inline too) */}
+          <div className="pt-6 hidden sm:block">
             <button 
               onClick={() => addToCart(product)}
               className="w-full bg-green-500 text-white py-5 rounded-2xl font-black text-sm uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-green-600 active:scale-95 transition-all shadow-xl shadow-green-500/30"
@@ -112,19 +113,20 @@ const ProductDetail: React.FC = () => {
         </div>
       </div>
 
-      {/* --- GSMARENA-STYLE TECHNICAL SPECIFICATIONS --- */}
+      {/* --- TECHNICAL SPECIFICATIONS --- */}
       {product.detailedSpecs && (
         <div className="mt-24 pt-16 border-t border-slate-200">
           <h3 className="text-3xl md:text-4xl font-black uppercase italic mb-10 tracking-tighter">Detailed Specs</h3>
           <div className="grid md:grid-cols-2 gap-8">
             {product.detailedSpecs.map((specGroup, idx) => (
-              <div key={idx} className="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+              <div key={idx} className="bg-white rounded-3xl p-6 md:p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                 <h4 className="font-black uppercase tracking-widest text-sm text-red-600 mb-6 flex items-center gap-2">
                   <Info size={16} /> {specGroup.category}
                 </h4>
                 <ul className="space-y-4">
                   {specGroup.items.map((item, i) => (
-                    <li key={i} className="flex flex-col sm:flex-row sm:justify-between gap-1 border-b border-slate-50 pb-4 last:border-0 last:pb-0">
+                    // Mobile First Fix: flex-col on mobile, flex-row on larger screens
+                    <li key={i} className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4 border-b border-slate-50 pb-4 last:border-0 last:pb-0">
                       <span className="text-slate-500 text-sm font-bold min-w-[120px]">{item.name}</span>
                       <span className="text-slate-900 text-sm font-medium sm:text-right">{item.value}</span>
                     </li>
@@ -142,7 +144,7 @@ const ProductDetail: React.FC = () => {
           <h3 className="text-3xl md:text-4xl font-black uppercase italic mb-10 tracking-tighter">Customer Reviews</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {product.reviews.map((rev, idx) => (
-              <div key={idx} className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
+              <div key={idx} className="bg-slate-50 rounded-3xl p-6 md:p-8 border border-slate-100">
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <h5 className="font-black text-slate-900 uppercase tracking-widest text-sm">{rev.user}</h5>
@@ -164,6 +166,21 @@ const ProductDetail: React.FC = () => {
         <p className="text-xs font-black text-red-600 uppercase tracking-widest">
           Disclaimer: Prices & Stock Availability Subject to Change Without Notice!
         </p>
+      </div>
+
+      {/* --- NEW: MOBILE STICKY ACTION BAR --- */}
+      {/* This only appears on mobile screens (sm and below). It sits permanently at the bottom. */}
+      <div className="sm:hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-xl border-t border-slate-200 p-4 px-6 z-50 flex items-center justify-between shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
+        <div>
+          <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest leading-none mb-1">Total Price</p>
+          <p className="text-2xl font-black text-slate-900 leading-none">KSh {product.price}</p>
+        </div>
+        <button 
+          onClick={() => addToCart(product)}
+          className="bg-green-500 text-white px-6 py-4 rounded-xl font-black text-xs uppercase tracking-widest flex items-center gap-2 active:scale-95 transition-transform shadow-lg shadow-green-500/30"
+        >
+          <ShoppingBag size={18} /> Add to Cart
+        </button>
       </div>
 
     </main>
