@@ -1,18 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Search, SlidersHorizontal, X, ArrowDownAZ, ArrowUpZA } from 'lucide-react';
 import ProductCard from '../components/common/ProductCard';
-import { BRANDS, BESTSELLERS } from '../data/constants';
-import type { Product } from '../types';
-
-// --- EXPANDED MOCK INVENTORY (Simulating a Database Fetch) ---
-const ALL_PRODUCTS: Product[] = [
-  ...BESTSELLERS,
-  { id: 5, name: "iPhone 13 Pro", brand: "Apple", price: "95,000", oldPrice: "110,000", image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600", tag: "Refurbished", specs: "128GB | Sierra Blue" },
-  { id: 6, name: "Samsung Galaxy A54", brand: "Samsung", price: "48,500", oldPrice: "52,000", image: "https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3?auto=format&fit=crop&q=80&w=600", tag: "Value Pick", specs: "8GB RAM | 256GB Storage" },
-  { id: 7, name: "Tecno Camon 20", brand: "Tecno", price: "32,000", oldPrice: "35,000", image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=600", tag: "Popular", specs: "8GB RAM | 256GB Storage" },
-  { id: 8, name: "Infinix Note 30 VIP", brand: "Infinix", price: "45,000", oldPrice: "49,000", image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&q=80&w=600", tag: "New", specs: "12GB RAM | 256GB Storage" },
-  { id: 9, name: "Oraimo Watch 2 Pro", brand: "Oraimo", price: "7,500", oldPrice: "9,000", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=600", tag: "Accessory", specs: "Bluetooth Calling | IP68" }
-];
+import { BRANDS, ALL_PRODUCTS } from '../data/constants'; // <-- Now importing ALL_PRODUCTS directly from constants
 
 // Helper function to convert formatted strings ("165,000") to actual numbers (165000) for sorting
 const parsePrice = (priceStr: string) => parseInt(priceStr.replace(/,/g, ''), 10);
@@ -29,7 +18,7 @@ const Shop: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // --- FILTER & SORT ENGINE (useMemo ensures this only recalculates when dependencies change) ---
+  // --- FILTER & SORT ENGINE ---
   const filteredProducts = useMemo(() => {
     let result = ALL_PRODUCTS;
 
@@ -89,7 +78,7 @@ const Shop: React.FC = () => {
             placeholder="Search phones, accessories..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-white border border-slate-200 rounded-2xl py-4 pl-12 pr-4 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all shadow-sm"
+            className="w-full bg-white border border-slate-200 rounded-2xl py-4 pl-12 pr-4 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all shadow-sm"
           />
         </div>
       </div>
@@ -103,7 +92,7 @@ const Shop: React.FC = () => {
           <SlidersHorizontal size={16} /> Filters {selectedBrands.length > 0 && `(${selectedBrands.length})`}
         </button>
         <select 
-          className="flex-1 bg-white border border-slate-200 py-3 rounded-xl font-bold text-sm px-4 shadow-sm outline-none focus:ring-2 focus:ring-red-500"
+          className="flex-1 bg-white border border-slate-200 py-3 rounded-xl font-bold text-sm px-4 shadow-sm outline-none focus:ring-2 focus:ring-green-500"
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value as any)}
         >
@@ -123,16 +112,16 @@ const Shop: React.FC = () => {
             <h4 className="font-black uppercase tracking-widest text-xs mb-4 text-slate-400">Sort By</h4>
             <div className="space-y-3">
               <label className="flex items-center gap-3 cursor-pointer group">
-                <input type="radio" name="sort" value="featured" checked={sortBy === 'featured'} onChange={() => setSortBy('featured')} className="w-4 h-4 text-red-600 focus:ring-red-500 border-slate-300" />
-                <span className="text-sm font-bold text-slate-700 group-hover:text-red-600 transition-colors">Featured</span>
+                <input type="radio" name="sort" value="featured" checked={sortBy === 'featured'} onChange={() => setSortBy('featured')} className="w-4 h-4 text-green-600 focus:ring-green-500 border-slate-300" />
+                <span className="text-sm font-bold text-slate-700 group-hover:text-green-600 transition-colors">Featured</span>
               </label>
               <label className="flex items-center gap-3 cursor-pointer group">
-                <input type="radio" name="sort" value="price-low" checked={sortBy === 'price-low'} onChange={() => setSortBy('price-low')} className="w-4 h-4 text-red-600 focus:ring-red-500 border-slate-300" />
-                <span className="text-sm font-bold text-slate-700 group-hover:text-red-600 transition-colors flex items-center gap-1"><ArrowUpZA size={14}/> Price: Low to High</span>
+                <input type="radio" name="sort" value="price-low" checked={sortBy === 'price-low'} onChange={() => setSortBy('price-low')} className="w-4 h-4 text-green-600 focus:ring-green-500 border-slate-300" />
+                <span className="text-sm font-bold text-slate-700 group-hover:text-green-600 transition-colors flex items-center gap-1"><ArrowUpZA size={14}/> Price: Low to High</span>
               </label>
               <label className="flex items-center gap-3 cursor-pointer group">
-                <input type="radio" name="sort" value="price-high" checked={sortBy === 'price-high'} onChange={() => setSortBy('price-high')} className="w-4 h-4 text-red-600 focus:ring-red-500 border-slate-300" />
-                <span className="text-sm font-bold text-slate-700 group-hover:text-red-600 transition-colors flex items-center gap-1"><ArrowDownAZ size={14}/> Price: High to Low</span>
+                <input type="radio" name="sort" value="price-high" checked={sortBy === 'price-high'} onChange={() => setSortBy('price-high')} className="w-4 h-4 text-green-600 focus:ring-green-500 border-slate-300" />
+                <span className="text-sm font-bold text-slate-700 group-hover:text-green-600 transition-colors flex items-center gap-1"><ArrowDownAZ size={14}/> Price: High to Low</span>
               </label>
             </div>
           </div>
@@ -142,12 +131,11 @@ const Shop: React.FC = () => {
             <div className="flex justify-between items-center mb-4">
               <h4 className="font-black uppercase tracking-widest text-xs text-slate-400">Brands</h4>
               {selectedBrands.length > 0 && (
-                <button onClick={clearFilters} className="text-[10px] font-bold text-red-600 hover:underline uppercase tracking-widest">Clear</button>
+                <button onClick={clearFilters} className="text-[10px] font-bold text-slate-900 hover:underline uppercase tracking-widest">Clear</button>
               )}
             </div>
             <ul className="space-y-3 max-h-96 overflow-y-auto pr-2 custom-scrollbar">
               {BRANDS.map((brand) => {
-                // Only show brands that actually have products in our mock database
                 const count = ALL_PRODUCTS.filter(p => p.brand === brand).length;
                 if (count === 0) return null;
 
@@ -158,9 +146,9 @@ const Shop: React.FC = () => {
                         type="checkbox" 
                         checked={selectedBrands.includes(brand)}
                         readOnly
-                        className="w-4 h-4 rounded text-red-600 focus:ring-red-500 border-slate-300" 
+                        className="w-4 h-4 rounded text-green-600 focus:ring-green-500 border-slate-300" 
                       />
-                      <span className={`text-sm font-bold transition-colors ${selectedBrands.includes(brand) ? 'text-red-600' : 'text-slate-700 group-hover:text-red-600'}`}>
+                      <span className={`text-sm font-bold transition-colors ${selectedBrands.includes(brand) ? 'text-green-600' : 'text-slate-700 group-hover:text-green-600'}`}>
                         {brand}
                       </span>
                     </label>
@@ -184,8 +172,8 @@ const Shop: React.FC = () => {
                 </span>
               )}
               {selectedBrands.map(brand => (
-                <span key={brand} className="bg-red-50 text-red-600 border border-red-100 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-2">
-                  {brand} <button onClick={() => toggleBrand(brand)}><X size={12} className="hover:text-red-900"/></button>
+                <span key={brand} className="bg-green-50 text-green-700 border border-green-200 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-2">
+                  {brand} <button onClick={() => toggleBrand(brand)}><X size={12} className="hover:text-green-900"/></button>
                 </span>
               ))}
             </div>
@@ -205,7 +193,7 @@ const Shop: React.FC = () => {
                 <p className="text-slate-500 font-medium mb-6">We couldn't find any products matching your current filters.</p>
                 <button 
                   onClick={clearFilters}
-                  className="bg-slate-900 text-white px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-red-600 transition-all shadow-lg"
+                  className="bg-slate-900 text-white px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-green-600 transition-all shadow-lg"
                 >
                   Clear All Filters
                 </button>
@@ -238,7 +226,7 @@ const Shop: React.FC = () => {
                   <button 
                     key={brand}
                     onClick={() => toggleBrand(brand)}
-                    className={`p-3 rounded-xl border text-sm font-bold text-left transition-all ${isActive ? 'bg-red-50 border-red-200 text-red-600 shadow-sm' : 'bg-white border-slate-200 text-slate-600'}`}
+                    className={`p-3 rounded-xl border text-sm font-bold text-left transition-all ${isActive ? 'bg-green-50 border-green-200 text-green-700 shadow-sm' : 'bg-white border-slate-200 text-slate-600'}`}
                   >
                     {brand} <span className="text-[10px] text-slate-400 ml-1">({count})</span>
                   </button>
