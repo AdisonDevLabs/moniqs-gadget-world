@@ -20,8 +20,8 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onMenuOpen }) => {
     : 'bg-transparent py-6';
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${navBackground}`}>
-      <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
+    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-200 ${navBackground}`}>
+      <div className="max-w-7xl mx-auto px-4 pt-4 flex justify-between items-center">
         
         {/* 1. Logo Section (Routes to Home) */}
         <Link to="/" className="flex items-center gap-3 group cursor-pointer">
