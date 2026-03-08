@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Facebook, Instagram, Twitter, ArrowRight } from 'lucide-react';
+import { Facebook, Instagram, Twitter, ArrowRight } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -9,8 +9,12 @@ const Footer: React.FC = () => {
         {/* Brand Column */}
         <div className="space-y-6">
           <div className="flex items-center gap-3 text-white">
-            <div className="bg-red-600 p-2 rounded-xl">
-              <Zap size={20} className="fill-white" />
+            <div className="bg-white p-2 rounded-xl">
+              <img
+                src="/MGW.webp"
+                alt="MGW Logo"
+                className="w-8 h-8 object-cover rounded-lg" 
+              />
             </div>
             <h1 className="text-xl font-black tracking-tighter">MONIQS GADGET</h1>
           </div>

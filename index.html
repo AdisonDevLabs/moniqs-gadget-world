@@ -1,14 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Moniqs Gadget World</title>
+    <!-- A quick emoji favicon trick so you don't need a logo file yet -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!-- SEO & WhatsApp Preview Tags -->
+    <title>Moniqs Gadget World | Premium Phones & Accessories Nakuru</title>
+    <meta name="description" content="Your One Stop Mobile Phones Sales, Repairs & Accessories Shop in Nakuru. Genuine devices, friendly pricing, and fast delivery." />
+    
+    <meta property="og:title" content="Moniqs Gadget World - New Storefront" />
+    <meta property="og:description" content="Explore our new interactive shop. Order your favorite Samsung, iPhone, and accessories instantly." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&q=80&w=1200" />
   </head>
-  <body>
+  <body class="bg-slate-50 antialiased selection:bg-red-200 selection:text-red-900">
     <div id="root"></div>
-    <!-- THE FIX IS HERE: Make sure it starts with /src/... -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

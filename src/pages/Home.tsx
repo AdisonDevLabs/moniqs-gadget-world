@@ -23,7 +23,7 @@ const Home: React.FC = () => {
       <BenefitsSection />
 
       {/* Featured Products Section */}
-      <section className="py-24 px-4 max-w-7xl mx-auto">
+      <section className="py-14 px-4 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="space-y-4">
             <span className="text-red-600 font-black text-xs uppercase tracking-[0.2em] italic">Stock Inventory</span>

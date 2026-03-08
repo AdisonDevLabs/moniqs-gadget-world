@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Phone, Menu, ShoppingBag } from 'lucide-react';
+import { Phone, Menu, ShoppingBag } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import { sendWhatsApp } from '../../utils/whatsapp';
@@ -25,8 +25,12 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onMenuOpen }) => {
         
         {/* 1. Logo Section (Routes to Home) */}
         <Link to="/" className="flex items-center gap-3 group cursor-pointer">
-          <div className="bg-red-600 p-2 rounded-xl text-white shadow-lg shadow-red-200 group-hover:scale-110 transition-transform">
-            <Zap size={22} className="fill-white" />
+          <div className="group-hover:scale-110 transition-transform duration-300">
+            <img
+              src="/MGW.webp"
+              alt="Moniqs Gadget World Logo"
+              className="w-10 h-10 object-cover rounded-xl shadow-lg shadow-red-200"
+            />
           </div>
           <div>
             <h1 className="text-xl font-black tracking-tighter leading-none">MONIQS GADGET</h1>

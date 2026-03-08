@@ -3,9 +3,9 @@ import { BENEFITS } from '../../data/constants';
 
 const BenefitsSection: React.FC = () => {
   return (
-    <section className="py-20 px-4 bg-white border-b border-slate-100">
+    <section className="py-12 px-4 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10">
           <h3 className="text-3xl md:text-5xl font-black tracking-tighter text-slate-900 mb-4">
             More Than Just A Shop.
           </h3>

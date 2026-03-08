@@ -73,31 +73,31 @@ export const ALL_PRODUCTS: Product[] = [
     description: "Forged in aerospace-grade titanium, making it the lightest and strongest Pro Max ever. Experience console-level gaming with the A17 Pro chip and capture cinematic masterpieces with the advanced 5x optical zoom camera."
   },
   { 
-    id: 3, name: "Oraimo FreePods 4", brand: "Oraimo", price: "4,500", oldPrice: "6,500", image: "/images/oraimo-freepods-4.jpg", tag: "40% OFF", specs: "ANC Support",
+    id: 3, name: "Oraimo FreePods 4", brand: "Oraimo", price: "4,500", oldPrice: "6,500", image: "/images/oraimo-freepods-4.webp", tag: "40% OFF", specs: "ANC Support",
     description: "Block out the noise and immerse yourself in pure bass. The FreePods 4 feature Active Noise Cancellation, transparent mode, and up to 35.5 hours of total playtime. The perfect companion for commutes and workouts."
   },
   { 
-    id: 4, name: "Redmi Note 13 Pro", brand: "Xiaomi", price: "44,500", oldPrice: "48,000", image: "/images/redmi-note-13-pro.jpg", tag: "New Arrival", specs: "200MP Camera",
+    id: 4, name: "Redmi Note 13 Pro", brand: "Xiaomi", price: "44,500", oldPrice: "48,000", image: "/images/redmi-note-14-pro.jpg", tag: "New Arrival", specs: "200MP Camera",
     description: "Flagship-level photography at a mid-range price. The Note 13 Pro boasts an ultra-clear 200MP main camera with OIS, paired with a buttery-smooth 120Hz AMOLED display and blazing-fast 67W turbo charging."
   },
   { 
-    id: 5, name: "iPhone 13 Pro", brand: "Apple", price: "95,000", oldPrice: "110,000", image: "/images/iphone-13-pro.jpg", tag: "Refurbished", specs: "128GB | Sierra Blue",
+    id: 5, name: "iPhone 13 Pro", brand: "Apple", price: "95,000", oldPrice: "110,000", image: "/images/iphone-13-pro.webp", tag: "Refurbished", specs: "128GB | Sierra Blue",
     description: "An incredible value for iOS lovers. The iPhone 13 Pro delivers stunning ProMotion 120Hz visuals, incredible low-light photography, and all-day battery life. Certified and tested to function like brand new."
   },
   { 
-    id: 6, name: "Samsung Galaxy A54", brand: "Samsung", price: "48,500", oldPrice: "52,000", image: "/images/samsung-a54.jpg", tag: "Value Pick", specs: "8GB RAM | 256GB Storage",
+    id: 6, name: "Samsung Galaxy A55", brand: "Samsung", price: "48,500", oldPrice: "52,000", image: "/images/samsung-a55.jpg", tag: "Value Pick", specs: "8GB RAM | 256GB Storage",
     description: "The king of the mid-range. The Galaxy A54 brings a premium glass finish, IP67 water resistance, and an awesome Nightography camera. A reliable, long-lasting device that looks and feels like a flagship."
   },
   { 
-    id: 7, name: "Tecno Camon 20", brand: "Tecno", price: "32,000", oldPrice: "35,000", image: "/images/tecno-camon-20.jpg", tag: "Popular", specs: "8GB RAM | 256GB Storage",
-    description: "Stand out with the Camon 20's unique, award-winning geometric design. It features a brilliant AMOLED screen and a highly optimized 64MP night-portrait camera, making it perfect for social media creators on a budget."
+    id: 7, name: "Tecno Camon 40", brand: "Tecno", price: "32,000", oldPrice: "35,000", image: "/images/tecno-camon-40.jpg", tag: "Popular", specs: "8GB RAM | 256GB Storage",
+    description: "Stand out with the Camon 40's unique, award-winning geometric design. It features a brilliant AMOLED screen and a highly optimized 64MP night-portrait camera, making it perfect for social media creators on a budget."
   },
   { 
-    id: 8, name: "Infinix Note 30 VIP", brand: "Infinix", price: "45,000", oldPrice: "49,000", image: "/images/infinix-note-30.jpg", tag: "New", specs: "12GB RAM | 256GB Storage",
+    id: 8, name: "Infinix Note 40 Pro", brand: "Infinix", price: "45,000", oldPrice: "49,000", image: "/images/infinix-note-40-pro.jpg", tag: "New", specs: "12GB RAM | 256GB Storage",
     description: "Experience VIP charging speeds. With 68W wired and 50W wireless fast charging, you're never tethered to a wall for long. Paired with 12GB of RAM, this device is a multitasking and gaming monster."
   },
   { 
-    id: 9, name: "Oraimo Watch 2 Pro", brand: "Oraimo", price: "7,500", oldPrice: "9,000", image: "/images/oraimo-watch-2.jpg", tag: "Accessory", specs: "Bluetooth Calling | IP68",
+    id: 9, name: "Oraimo Watch 2 Pro", brand: "Oraimo", price: "7,500", oldPrice: "9,000", image: "/images/oraimo-watch-2.webp", tag: "Accessory", specs: "Bluetooth Calling | IP68",
     description: "Stay connected without touching your phone. The Watch 2 Pro supports crystal-clear Bluetooth calling, 24/7 heart rate monitoring, and over 120 sports modes. Features a bright, responsive HD touchscreen."
   }
 ];
